@@ -27,7 +27,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 public class Ventana {
-
+ 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
