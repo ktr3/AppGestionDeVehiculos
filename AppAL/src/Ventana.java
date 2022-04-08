@@ -161,7 +161,7 @@ public class Ventana {
 
 		
 		
-		// BOTON AÑADIR COCHE
+		// BOTON AÃ‘ADIR COCHE
 		JButton btnNewButton = new JButton("A\u00F1adir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -233,7 +233,7 @@ public class Ventana {
 				model.addColumn("Id");
 				model.addColumn("Marca");
 				model.addColumn("Modelo");
-				model.addColumn("Año de fabricacion");
+				model.addColumn("AÃ±o de fabricacion");
 
 
 				table_2.setModel(model);
@@ -434,7 +434,7 @@ public class Ventana {
 		panel_1.add(textField_17);
 		
 		
-		//Añadir camion
+		//AÃ±adir camion
 		JButton btnNewButton_1 = new JButton("A\u00F1adir");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -477,13 +477,13 @@ public class Ventana {
 				con.conectar();
 				if(textField_13.getText().isEmpty()) {
 					//precio cambiado
-					con.agregar("UPDATE camiones SET precio='"+textField_21.getText()+"' WHERE matricula='"+textField.getText()+"'");
+					con.agregar("UPDATE camiones SET precio='"+textField_21.getText()+"' WHERE matricula='"+textField_8.getText()+"'");
 				}else if(textField_21.getText().isEmpty()){
 					//color cambiado
 					con.agregar("UPDATE camiones SET color='"+textField_13.getText()+"' WHERE matricula='"+textField_8.getText()+"'");
 				}else {
 					//cambio los 2
-					con.agregar("UPDATE camiones SET precio='"+textField_21.getText()+"' WHERE matricula='"+textField.getText()+"'");
+					con.agregar("UPDATE camiones SET precio='"+textField_21.getText()+"' WHERE matricula='"+textField_8.getText()+"'");
 					con.agregar("UPDATE camiones SET color='"+textField_13.getText()+"' WHERE matricula='"+textField_8.getText()+"'");
 				}
 				
@@ -512,7 +512,7 @@ public class Ventana {
 				model.addColumn("Id");
 				model.addColumn("Marca");
 				model.addColumn("Modelo");
-				model.addColumn("Año de fabricacion");
+				model.addColumn("AÃ±o de fabricacion");
 
 
 				table_2.setModel(model);
@@ -677,7 +677,7 @@ public class Ventana {
 		model.addColumn("Id");
 		model.addColumn("Marca");
 		model.addColumn("Modelo");
-		model.addColumn("Año de fabricacion");
+		model.addColumn("AÃ±o de fabricacion");
 
 
 		table_2.setModel(model);
@@ -708,7 +708,7 @@ public class Ventana {
 		textField_11.setColumns(10);
 		textField_11.setBounds(707, 173, 86, 20);
 		panel_3.add(textField_11);
-		//Añadir nueva serie
+		//AÃ±adir nueva serie
 		JButton btnNuevaSerie = new JButton("Nueva serie");
 		btnNuevaSerie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -741,7 +741,7 @@ public class Ventana {
 				model.addColumn("Id");
 				model.addColumn("Marca");
 				model.addColumn("Modelo");
-				model.addColumn("Año de fabricacion");
+				model.addColumn("AÃ±o de fabricacion");
 
 
 				table_2.setModel(model);
