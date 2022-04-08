@@ -26,6 +26,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class Ventana {
 
@@ -86,6 +87,7 @@ public class Ventana {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ik012982i9\\Desktop\\Logo.png"));
 		frame.setBounds(100, 100, 850, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -174,6 +176,16 @@ public class Ventana {
 				//insert into coches (matricula,id_serie,num_bastidor,color,precio,num_asientos,num_puertas,capacidad_maletero) values ("12424T",1, "23542345","rojo",1000,5,5,300);
 				con.agregar("INSERT INTO coches (matricula, numBastidor, color, numAsientos, precio, id_serie, numPuertas, capacidadMaletero) values (" 
 				+ "'"+textField.getText()+"', '"+textField_1.getText()+"', '"+textField_2.getText()+"', '"+textField_3.getText()+"', '"+textField_4.getText()+"', '"+textField_5.getText()+"', '"+textField_6.getText()+"', '"+textField_7.getText()+"')");
+			
+				textField.setText(null);
+				textField_1.setText("");
+				textField_2.setText(null);
+				textField_3.setText("");
+				textField_4.setText(null);
+				textField_5.setText("");
+				textField_6.setText(null);
+				textField_7.setText("");
+			
 			}
 		});
 		btnNewButton.setBounds(51, 265, 89, 23);
@@ -451,6 +463,16 @@ public class Ventana {
 				con.agregar("INSERT INTO camiones (matricula, numBastidor, color, numAsientos, precio, id_serie, carga, tipoMercancia) values ('"+textField_8.getText()+"', '"+textField_12.getText()+"', "
 						+ "'"+textField_13.getText()+"','"+textField_14.getText()+"',  '"+textField_21.getText()+"', '"+textField_15.getText()+"', '"+textField_16.getText()+"', '"+textField_17.getText()+"')");
 				
+				textField_8.setText(null);
+				textField_12.setText("");
+				textField_13.setText(null);
+				textField_14.setText("");
+				textField_21.setText(null);
+				textField_15.setText("");
+				textField_16.setText(null);
+				textField_17.setText("");
+			
+			
 			}
 		});
 		btnNewButton_1.setBounds(51, 265, 89, 23);
@@ -726,6 +748,143 @@ public class Ventana {
 				//insert into coches (matricula,id_serie,num_bastidor,color,precio,num_asientos,num_puertas,capacidad_maletero) values ("12424T",1, "23542345","rojo",1000,5,5,300);
 				con.agregar("insert into series(marca, modelo, anoFabricacion) values ('"+textField_9.getText()+"', '"+textField_10.getText()+"', '"+textField_11.getText()+"');");
 				
+			
+				textField_9.setText(null);
+				textField_10.setText("");
+				textField_11.setText(null);
+				
+				
+				
+				String sql= "Select * from series;";
+				
+				Statement st;
+				
+				DefaultTableModel model = new DefaultTableModel();
+				
+				model.addColumn("Id");
+				model.addColumn("Marca");
+				model.addColumn("Modelo");
+				model.addColumn("Año de fabricacion");
+
+
+				table_2.setModel(model);
+				String [] dato = new String[4];
+				try {
+					st = conexion.createStatement();
+					
+					ResultSet result = st.executeQuery(sql);
+					
+					while(result.next()) {
+						dato[0]=result.getString(1);
+						dato[1]=result.getString(2);
+						dato[2]=result.getString(3);
+						dato[3]=result.getString(4);
+						model.addRow(dato);
+					}
+					
+				}catch (SQLException ex) {
+					System.out.println("Fallo tabla");
+				}
+				//TABLA VEHICULOS
+				
+				String sql2= "Select * from vehiculos;";
+				
+				Statement st2;
+				
+				DefaultTableModel model2 = new DefaultTableModel();
+				
+				model2.addColumn("idvehiculos");
+				model2.addColumn("Tipo");
+				model2.addColumn("matricula");
+				model2.addColumn("numBastidor");
+				model2.addColumn("color");
+				model2.addColumn("numAsientos");
+				model2.addColumn("precio");
+				model2.addColumn("id_serie");
+	
+
+				table.setModel(model2);
+				String [] dato2 = new String[8];
+				try {
+					st2 = conexion.createStatement();
+					
+					ResultSet result2 = st2.executeQuery(sql2);
+					
+					while(result2.next()) {
+						dato2[0]=result2.getString(1);
+						dato2[1]=result2.getString(2);
+						dato2[2]=result2.getString(3);
+						dato2[3]=result2.getString(4);
+						dato2[4]=result2.getString(5);
+						dato2[5]=result2.getString(6);
+						dato2[6]=result2.getString(7);
+						dato2[7]=result2.getString(8);
+						
+						
+						model2.addRow(dato2);
+					}
+					
+				}catch (SQLException ex) {
+					System.out.println("Fallo tabla");
+				}
+				//TABLE HISTORIAL
+				
+				String sql3= "Select * from historial;";
+				
+				Statement st3;
+				
+				DefaultTableModel model3 = new DefaultTableModel();
+				
+				model3.addColumn("Id Hitorial");
+				model3.addColumn("Tipo");
+				model3.addColumn("Matricula");
+				model3.addColumn("numBastidor");
+				model3.addColumn("Color");
+				model3.addColumn("numAsientos");
+				model3.addColumn("Precio");
+				model3.addColumn("Id Serie");
+				model3.addColumn("Carga");
+				model3.addColumn("tipoMercancia");
+				model3.addColumn("numPuertas");
+				model3.addColumn("capacidadMaletero");
+				model3.addColumn("Repintado");
+				model3.addColumn("Operacion");
+				model3.addColumn("Fecha");
+
+
+				table_1.setModel(model3);
+				String [] dato3 = new String[15];
+				try {
+					st3 = conexion.createStatement();
+					
+					ResultSet result3 = st3.executeQuery(sql3);
+					
+					while(result3.next()) {
+						dato3[0]=result3.getString(1);
+						dato3[1]=result3.getString(2);
+						dato3[2]=result3.getString(3);
+						dato3[3]=result3.getString(4);
+						dato3[4]=result3.getString(5);
+						dato3[5]=result3.getString(6);
+						dato3[6]=result3.getString(7);
+						dato3[7]=result3.getString(8);
+						dato3[8]=result3.getString(9);
+						dato3[9]=result3.getString(10);
+						dato3[10]=result3.getString(11);
+						dato3[11]=result3.getString(12);
+						dato3[12]=result3.getString(13);
+						dato3[13]=result3.getString(14);
+						dato3[14]=result3.getString(15);
+						
+						model3.addRow(dato3);
+					}
+					
+				}catch (SQLException ex) {
+					System.out.println("Fallo tabla historial");
+				}
+				JOptionPane.showMessageDialog(null, "Tablas actualizadas");	
+				
+			
 			}
 		});
 		btnNuevaSerie.setBounds(595, 202, 101, 23);
